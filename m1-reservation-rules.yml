@@ -7,6 +7,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
 
 eureka:
   client:
@@ -18,12 +19,11 @@ eureka:
 server:
   port: 0  # random port for dynamic assignment
 
-kartim:
-  billing:
-    durations:
-      - minutes: 10
-        price: 15000
-      - minutes: 15
-        price: 50000
-      - minutes: 20
-        price: 25000
+config:
+  duration:
+    preReservationTime: 10
+    postReservationTime: 10
+  pricing:
+    10: 15000
+    15: 20000
+    20: 25000
