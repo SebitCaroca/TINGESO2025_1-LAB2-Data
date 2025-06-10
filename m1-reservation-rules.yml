@@ -23,6 +23,7 @@ config:
   duration:
     preReservationTime: 10
     postReservationTime: 10
+  tax: 0.19
   pricing:
     10: 15000
     15: 20000
