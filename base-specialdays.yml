@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://base-specialdays/postgres
+    url: jdbc:postgresql://postgres:5432/postgres
     username: postgres
     password: root
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
