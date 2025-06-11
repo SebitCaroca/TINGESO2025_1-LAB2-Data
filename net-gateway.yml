@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: net-gateway
+
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: base-clients
+            uri: lb://base-clients
+            predicates:
+              - Path=/base-clients/**
+          - id: base-specialdays
+            uri: lb://base-specialdays
+            predicates:
+              - Path=/base-specialdays/**
+          - id: base-karts
+            uri: lb://base-karts
+            predicates:
+              - Path=/karts/**
+          - id: m1-reservation-rules
+            uri: lb://m1-reservation-rules
+            predicates:
+              - Path=/m1/**
+          - id: m2-group-size-discount
+            uri: lb://m2-group-size-discount
+            predicates:
+              - Path=/m2/**
+          - id: m3-client-frequency-discount
+            uri: lb://m3-client-frequency-discount
+            predicates:
+              - Path=/m3/**
+          - id: m4-special-day-fees
+            uri: lb://m4-special-day-fees
+            predicates:
+              - Path=/m4/**
+          - id: m5-reservation-records-and-tickets
+            uri: lb://m5-reservation-records-and-tickets
+            predicates:
+              - Path=/m5/**
+          - id: m6-weekly-schedule
+            uri: lb://m6-weekly-schedule
+            predicates:
+              - Path=/m6/**
+          - id: m7-income-report
+            uri: lb://m7-income-report
+            predicates:
+              - Path=/m7/**
+    discovery:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://net-eureka:8761/eureka
